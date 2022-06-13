@@ -5,12 +5,12 @@ Product Table for WooCommerce has Tiny Shortcode. Easy to use and No need progra
 ```[Product_Table id='123']```
 
 ## Features
-- Withing a minute, User able to make a table and using shortcode, able to display anywhere
-- Most popular and Fastest
-- Developer Friendly - Available lots of Filter and Action Hook
-- Support all theme and plugin
-- Displaying product list as table within a minute.
-- So many lots of features [Read More](https://wooproducttable.com/)
+- With in a minute, Users are able to make a table using a shortcode, and are able to display a table anywhere
+- One of the Most popular and Fastest Table plug-ins
+- Developer Friendly - Many Filters and Action Hooks are Available
+- Is compatible with all supported themes and plugins
+- Very easy to display a product list as table (only takes a minute).
+- Numberous features [Read More](https://wooproducttable.com/)
 
 ## Plugin in WordPress.org
 https://wordpress.org/plugins/woo-product-table/
@@ -19,12 +19,12 @@ https://wordpress.org/plugins/woo-product-table/
 https://docs.google.com/spreadsheets/d/1RwnzuupIYC-ao2R3_P3hZU__R-8nA3p7o2XoWWntNig/edit?usp=sharing
 
 # Making a sample Addons
-Here I will show, how a user can make a addon for **Product Table for WooCommerce** using our Hook. As example, I will show, how to add new column in our table.
+Here I will show, how a user can make a addon for **Product Table for WooCommerce** using our Hook(s). As example, I will show, how to add new column in our table.
 
 ### Using hooks
 There are variety of ways to add your custom code to manipulate code by hooks:
-- To a custom child theme’s functions.php file.
-- Using a plugin such as [Code Snippets](https://wordpress.org/plugins/code-snippets/)
+- Can add to a custom child theme’s functions.php file.
+- By using a plugin such as [Code Snippets](https://wordpress.org/plugins/code-snippets/)
 
 ### Using action hooks
 To execute your own code, you hook in by using the action hook ```do_action('action_name');```. Here is where to place your code:
@@ -35,8 +35,8 @@ function your_function_name() {
 // Your code
 }
 ```
-## Start Procedure of adding new Collumn
-First we have to our custom column in default column array using ```wpto_default_column_arr``` filter.
+## Start the Procedure of adding a new Column
+First we have to add our new custom column in the default column array using ```wpto_default_column_arr``` filter.
 ```php
 <?php
 if( !function_exists( 'new_shortcode_column' ) ){
@@ -47,7 +47,7 @@ if( !function_exists( 'new_shortcode_column' ) ){
 }
 add_filter( 'wpto_default_column_arr', 'new_shortcode_column' );
 ```
-We have added our new shortcode column to default column array. Now we need a file where we can add the content for that custom shortcode.
+We have added our new shortcode column to the default column array. Now we need a template file where we can pull the content to add to the custom shortcode.
 
 Below we have used ```wpto_template_loc_item_ . $keyword``` filter.
 ```php
@@ -83,7 +83,7 @@ echo get_post_meta( $product_id, 'discount_custom_field', true );
 
 ```
 
-Now we need to add a input field for get the custom shortcode from user. here we have used ```wpto_column_setting_form_ . $keyword``` action to add the input field inside column area in column tab.
+Now we need to add a input field for the custom shortcode from user. here we have used ```wpto_column_setting_form_ . $keyword``` action to add the input field inside column area in column tab.
 ```php
 <?php
 function input_for_new_shortcode($_device_name, $column_settings){
